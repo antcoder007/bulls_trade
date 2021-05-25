@@ -1,0 +1,29 @@
+{
+  "name": "bulls_trade",
+  "version": "1.0.0",
+  "description": "This application is a consumer-to-consumer e-commerce platform using node.js, express, mongo, jwt, react, & redux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antcoder007/bulls_trade.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "jwt",
+    "mongoose",
+    "react",
+    "redux",
+    "ecommerce"
+  ],
+  "author": "Premanshu Yadav",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antcoder007/bulls_trade/issues"
+  },
+  "homepage": "https://github.com/antcoder007/bulls_trade#readme"
+}
