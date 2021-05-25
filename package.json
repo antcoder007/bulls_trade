@@ -4,6 +4,7 @@
   "description": "This application is a consumer-to-consumer e-commerce platform using node.js, express, mongo, jwt, react, & redux.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/antcoder007/bulls_trade/issues"
   },
-  "homepage": "https://github.com/antcoder007/bulls_trade#readme"
+  "homepage": "https://github.com/antcoder007/bulls_trade#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
