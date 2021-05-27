@@ -1,6 +1,6 @@
 const express = require("express");
-//const bodyParser = require("body-parser");
 const InitiateMongoServer = require("./database_config/db");
+const user = require("./routes/user");
 
 // initiate express
 const app = express();
@@ -21,6 +21,13 @@ app.use(express.urlencoded({
 app.get("/", (req, res) => {
   res.json({ message: "Hello World!" });
 });
+
+/*
+ * Router Middleware
+ * Router - /user/
+ * Method - *
+ */
+ app.use("/user", user);
 
 // listen for connections on declared port
 app.listen(PORT, (req, res) => {
