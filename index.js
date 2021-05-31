@@ -1,6 +1,7 @@
 const express = require("express");
 const InitiateMongoServer = require("./database_config/db");
 const user = require("./routes/user");
+const userDetail = require("./routes/userDetail");
 
 // initiate express
 const app = express();
@@ -27,7 +28,7 @@ app.get("/", (req, res) => {
  * Router - /user/
  * Method - *
  */
- app.use("/user", user);
+ app.use("/user", user, userDetail);
 
 // listen for connections on declared port
 app.listen(PORT, (req, res) => {
