@@ -6,6 +6,7 @@ const router = express.Router();
 
 const auth = require("./../middleware/auth");
 const User = require("../model/User");
+const UserDetail = require("../model/UserDetail");
 
 /**
  * @method - POST
@@ -24,7 +25,9 @@ const User = require("../model/User");
         check("password", "Please enter a valid password").isLength({
             min: 6,
             max:1024
-        })
+        }),
+        // check for valid address
+        check("address", "Please enter a valid address").notEmpty()
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -37,7 +40,8 @@ const User = require("../model/User");
         const {
             username,
             email,
-            password
+            password,
+            address
         } = req.body;
         try {
             let user = await User.findOne({
@@ -55,10 +59,16 @@ const User = require("../model/User");
                 password
             });
 
+            userDetail = new UserDetail({
+                userId: user._id,
+                address
+            });
+
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
 
             await user.save();
+            await userDetail.save();
 
             const payload = {
                 user: {
