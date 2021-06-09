@@ -27,4 +27,18 @@ const UserDetail = require("../model/UserDetail");
     }
   });
 
+/**
+ * @method - GET
+ * @description - Get list of prdocuts for loggedIn user
+ * @param - /user/prodcut
+ */
+ router.get("/product", auth, async (req, res) => {
+    try {
+      const productList = await UserDetail.findOne({ userId : req.user.id}).populate('myProducts');
+      res.json(productList);
+    } catch (e) {
+      res.send({ message: "Cannot fetch prodcuts..." });
+    }
+  });
+
   module.exports = router;
