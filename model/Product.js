@@ -11,7 +11,7 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
-    prdocutName: {
+    productName: {
         type: String,
         required: true,
         minLength: 3,
@@ -44,6 +44,19 @@ const productSchema = new Schema({
         type: Date,
         default: Date.now()
     }
+});
+
+/**
+ * mongoose pre middleware hook for null image
+ * since @default value in schema only applies
+ * for undefined paths
+ */
+productSchema.pre('save', function(next) {
+    if (this.image === null) {
+        this.image = 'https://www.freeiconspng.com/uploads/no-image-icon-4.png';
+    }
+
+    next();
 });
 
 module.exports = mongoose.model("product", productSchema);
