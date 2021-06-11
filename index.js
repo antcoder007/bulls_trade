@@ -2,6 +2,7 @@ const express = require("express");
 const InitiateMongoServer = require("./database_config/db");
 const user = require("./routes/user");
 const userDetail = require("./routes/userDetail");
+const product = require("./routes/product");
 
 // initiate express
 const app = express();
@@ -29,6 +30,12 @@ app.get("/", (req, res) => {
  * Method - *
  */
  app.use("/user", user, userDetail);
+ /**
+  * Router Middleware
+  * RoUter - /product/
+  * Method - *
+  */
+ app.use("/product", product);
 
 // listen for connections on declared port
 app.listen(PORT, (req, res) => {
