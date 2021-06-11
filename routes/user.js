@@ -9,11 +9,19 @@ const User = require("../model/User");
 const UserDetail = require("../model/UserDetail");
 
 /**
- * @method - POST
- * @param - /signup
- * @description - User SignUp
+ * @method : *
+ * @parent_parameter : /user/
+ * @description : 
+ * this middleware is connected to
+ * the @user endpoint and is responsible
+ * for querying user node
  */
 
+/**
+ * @method : POST
+ * @param : /signup
+ * @description : User SignUp
+ */
  router.post(
     "/signup",
     [
@@ -96,9 +104,9 @@ const UserDetail = require("../model/UserDetail");
 );
 
 /**
- * @method - POST
- * @param - /login
- * @description - User Login
+ * @method : POST
+ * @param : /login
+ * @description : User Login
  */
 router.post(
     "/login",
@@ -164,9 +172,9 @@ router.post(
   );  
 
 /**
- * @method - GET
- * @description - Get LoggedIn User
- * @param - /user/me
+ * @method : GET
+ * @description : Get LoggedIn User
+ * @param : /me
  */
  router.get("/me", auth, async (req, res) => {
     try {
