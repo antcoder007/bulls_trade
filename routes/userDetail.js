@@ -9,9 +9,18 @@ const User = require("../model/User");
 const UserDetail = require("../model/UserDetail");
 
 /**
- * @method - GET
- * @description - Get details of LoggedIn User
- * @param - /user/detail
+ * @method : *
+ * @parent_parameter : /user/
+ * @description : 
+ * this middleware is connected to
+ * the @user endpoint and is responsible
+ * for querying userDetail node
+ */
+
+/**
+ * @method : GET
+ * @description : Get details of LoggedIn User
+ * @param : /detail
  */
  router.get("/detail", auth, async (req, res) => {
     try {
@@ -28,9 +37,9 @@ const UserDetail = require("../model/UserDetail");
   });
 
 /**
- * @method - GET
- * @description - Get list of prdocuts for loggedIn user
- * @param - /user/prodcut
+ * @method : GET
+ * @description : Get list of prdocuts for loggedIn user
+ * @param : /prodcut
  */
  router.get("/product", auth, async (req, res) => {
     try {
