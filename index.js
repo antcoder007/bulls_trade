@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require("express");
 const InitiateMongoServer = require("./database_config/db");
 const user = require("./routes/user");
@@ -11,7 +12,7 @@ const app = express();
 InitiateMongoServer();
 
 // set environment port
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3001;
 
 // set middleware
 app.use(express.json());
@@ -19,10 +20,11 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-// test request
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World!" });
-});
+// Have Node serve the files for our built React app
+    app.use(express.static("client/build"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    });
 
 /*
  * Router Middleware

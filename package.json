@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/antcoder007/bulls_trade/issues"
   },
-  "homepage": "https://github.com/antcoder007/bulls_trade#readme",
+  "homepage": "/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
