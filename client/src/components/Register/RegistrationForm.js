@@ -9,6 +9,14 @@ function RegistrationForm(props) {
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
             <form>
                 <div className="form-group text-left">
+                    <label htmlFor="exampleInputUserName1">Username:</label>
+                    <input type="username" 
+                        className="form-control" 
+                        id="username" 
+                        placeholder="Username"
+                    />
+                </div>
+                <div className="form-group text-left">
                 <label htmlFor="exampleInputEmail1">Email address:</label>
                 <input type="email" 
                        className="form-control" 
@@ -24,6 +32,14 @@ function RegistrationForm(props) {
                         className="form-control" 
                         id="password" 
                         placeholder="Password"
+                    />
+                </div>
+                <div className="form-group text-left">
+                    <label htmlFor="exampleInputAddress1">Shipping Address:</label>
+                    <input type="address" 
+                        className="form-control" 
+                        id="address" 
+                        placeholder="Address"
                     />
                 </div>
                 <button type="submit" class="btn btn-secondary btn-lg btn-block">
