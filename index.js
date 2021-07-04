@@ -22,9 +22,9 @@ app.use(express.urlencoded({
 
 // Have Node serve the files for our built React app
     app.use(express.static("client/build"));
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-    });
+    // app.get("*", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "client", "public", "index.html"));
+    // });
 
 /*
  * Router Middleware
