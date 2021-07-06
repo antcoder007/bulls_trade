@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import AuthService from "../../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
+import './Login.css';
 
 function Login(props) {
   const form = useRef();
