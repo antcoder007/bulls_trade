@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import './BaseHome.css';
 //import { useHistory } from 'react-router-dom';
 
 class BaseHome extends Component {
