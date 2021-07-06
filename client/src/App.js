@@ -3,6 +3,7 @@ import RegistrationForm from './components/Register/RegistrationForm';
 import BaseHome from './components/Home/BaseHome';
 import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
+import ProductList from './components/Product/ProductList';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,7 +27,10 @@ function App() {
               <Login />
             </Route>
             <Route path="/profile">
-              <Profile />
+            <Profile />
+            </Route>
+            <Route path="/products">
+              <ProductList />
             </Route>
           </Switch>
        </div>
