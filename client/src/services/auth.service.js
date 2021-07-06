@@ -42,9 +42,19 @@ const getCurrentUser = () => {
   });
 };
 
+const getProducts = () => {
+  const obj = JSON.parse(localStorage.getItem("user"));
+  return axios.get("product/")
+  .then((response) => {
+    return response.data;
+  })
+}
+
+
 export default {
   register,
   login,
   logout,
   getCurrentUser,
+  getProducts
 };
