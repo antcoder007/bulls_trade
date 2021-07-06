@@ -16,7 +16,7 @@ function Profile(props) {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>Welcome {user['username']}!</strong>
+          <strong>Welcome {user.username}!</strong>
         </h3>
       </header>
       <p>
