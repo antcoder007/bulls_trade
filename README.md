@@ -1,4 +1,7 @@
-# bulls_trade
-A consumer-to-consumer e-commerce platform.
+## BullsTrade
+A consumer-to-consumer e-commerce platform created using the MERN Stack (MongoDB, Express, React, Node).
 
-## README will be updated soon with API Documentation and steps for building the application.
+### The API Documentation can be found here:
+`https://documenter.getpostman.com/view/15953251/Tzm8DubX`
+
+
