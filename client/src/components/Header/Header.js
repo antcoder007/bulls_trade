@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { StyleSheet, Text } from 'react-native'
+import AuthService from "../../services/auth.service";
 
 class Header extends Component {
   constructor(props) {
     super(props);
+  }
+
+  logout() {
+    AuthService.logout();
   }
   
   render() {
@@ -27,7 +32,7 @@ class Header extends Component {
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/profile">My Profile</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="/" onClick={() => this.logout()}>Logout</a>
                 </div>
               </li>
             </ul>
