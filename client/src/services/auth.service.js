@@ -43,18 +43,35 @@ const getCurrentUser = () => {
 };
 
 const getProducts = () => {
-  const obj = JSON.parse(localStorage.getItem("user"));
   return axios.get("product/")
   .then((response) => {
     return response.data;
   })
 }
 
+const createProduct = (productName, productDescription, price, image) => {
+  const obj = JSON.parse(localStorage.getItem("user"));
+  const data = {
+      productName,
+      productDescription, 
+      price, 
+      image
+  }
+  return axios.post("product/", data, {
+    headers: {
+      'token': obj.token
+    },    
+  })
+  .then((response) => {
+    return response.data;
+  })
+}
 
 export default {
   register,
   login,
   logout,
   getCurrentUser,
-  getProducts
+  getProducts,
+  createProduct
 };
