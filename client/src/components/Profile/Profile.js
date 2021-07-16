@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import AuthService from "../../services/auth.service";
 import NewProductForm from "./NewProductForm";
+import ProductItem from "../Product/ProductItem";
+import "./Profile.css";
 
 function Profile(props) {
     const [user, setUser] = useState({});
+    const [myProducts, setMyProducts] = useState({});
+
+    useEffect(() => {
+        const list = AuthService.getMyPrdocuts();
+        list.then(function(result) {
+            console.log(result);
+            setMyProducts(result.myProducts);
+        });
+    }, []);
 
     useEffect(() => {
         const test = AuthService.getCurrentUser();
@@ -46,8 +57,17 @@ function Profile(props) {
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Temporary
+      <div class="row text-center">
+      {myProducts && myProducts.length ? (
+                myProducts.map((product, index) => (
+                <ProductItem
+                    product={product}
+                    key={index}
+                />
+                ))
+            ) : (
+            <p class="text-center">No Products Found!</p>
+          )}
       </div>
     </div>
   </div>

@@ -1,6 +1,9 @@
-.btn {
-    color:aliceblue;
-}
-a:hover {
-    color:azure;
-}
+/* The heart of the matter
+.collapse > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .collapse > .row > .col-xs-4 {
+    display: inline-block;
+    float: none;
+  } */
