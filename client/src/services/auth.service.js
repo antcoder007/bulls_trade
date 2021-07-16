@@ -49,6 +49,18 @@ const getProducts = () => {
   })
 }
 
+const getMyPrdocuts = () => {
+  const obj = JSON.parse(localStorage.getItem("user"));
+  return axios.get("user/product", {
+    headers: {
+      'token' : obj.token
+    }
+  })
+  .then((response) => {
+    return response.data;
+  });
+}
+
 const createProduct = (productName, productDescription, price, image) => {
   const obj = JSON.parse(localStorage.getItem("user"));
   const data = {
@@ -73,5 +85,6 @@ export default {
   logout,
   getCurrentUser,
   getProducts,
+  getMyPrdocuts,
   createProduct
 };
