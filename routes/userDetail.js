@@ -51,6 +51,20 @@ const Product = require("../model/Product");
     }
   });
 
+/**
+ * @method : GET
+ * @description : Get wishlist of prdocuts for loggedIn user
+ * @param : /watch
+ */
+ router.get("/watch", auth, async (req, res) => {
+  try {
+    const productList = await UserDetail.findOne({ userId : req.user.id}).populate('watchList');
+    res.json(productList);
+  } catch (e) {
+    res.send({ message: "Cannot fetch prodcuts..." });
+  }
+});
+
   /**
  * @method : POST
  * @param : /watch
