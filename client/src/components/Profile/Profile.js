@@ -7,6 +7,7 @@ import "./Profile.css";
 function Profile(props) {
     const [user, setUser] = useState({});
     const [myProducts, setMyProducts] = useState({});
+    const [myWishList, setMyWishList] = useState({});
 
     useEffect(() => {
         const list = AuthService.getMyPrdocuts();
@@ -15,6 +16,14 @@ function Profile(props) {
             setMyProducts(result.myProducts);
         });
     }, []);
+
+    useEffect(() => {
+      const list = AuthService.getWishList();
+      list.then(function(result) {
+          console.log(result);
+          setMyWishList(result.myWishList);
+      });
+  }, []);
 
     useEffect(() => {
         const test = AuthService.getCurrentUser();
@@ -80,8 +89,17 @@ function Profile(props) {
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Temporary
+    <div class="row text-center">
+      {myWishList && myWishList.length ? (
+                myWishList.map((wish, index) => (
+                <ProductItem
+                    product={wish}
+                    key={index}
+                />
+                ))
+            ) : (
+            <p>No Products Found!</p>
+          )}
       </div>
     </div>
   </div>
