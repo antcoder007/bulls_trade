@@ -61,6 +61,18 @@ const getMyPrdocuts = () => {
   });
 }
 
+const getWishList = () => {
+  const obj = JSON.parse(localStorage.getItem("user"));
+  return axios.get("user/watch", {
+    headers: {
+      'token' : obj.token
+    }
+  })
+  .then((response) => {
+    return response.data;
+  });
+}
+
 const createProduct = (productName, productDescription, price, image) => {
   const obj = JSON.parse(localStorage.getItem("user"));
   const data = {
@@ -86,5 +98,6 @@ export default {
   getCurrentUser,
   getProducts,
   getMyPrdocuts,
+  getWishList,
   createProduct
 };
