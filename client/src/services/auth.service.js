@@ -91,6 +91,19 @@ const createProduct = (productName, productDescription, price, image) => {
   })
 }
 
+// const createWishProduct = () => {
+//   const obj = JSON.parse(localStorage.getItem("user"));
+//   return axios.post("product/", {
+//     headers: {
+//       'token': obj.token
+
+//     },    
+//   })
+//   .then((response) => {
+//     return response.data;
+//   })
+// }
+
 export default {
   register,
   login,
