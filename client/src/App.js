@@ -4,6 +4,7 @@ import BaseHome from './components/Home/BaseHome';
 import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
 import ProductList from './components/Product/ProductList';
+import Cart from './components/Cart/Cart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/products">
               <ProductList />
+            </Route>
+            <Route path="/cart">
+              <Cart />
             </Route>
           </Switch>
        </div>
